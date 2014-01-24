@@ -9,8 +9,8 @@
 cgsgEventTypes.ON_SWITCH_VALUE_CHANGED = "onSwitchValueChanged";
 
 /**
- * This class represents an Accordion.
- * @class CGSGAccordion
+ * This class represents a switch.
+ * @class CGSGSwitch
  * @module Node
  * @extends CGSGNode
  * @constructor
@@ -33,11 +33,14 @@ var CGSGNodeSwitch = CGSGNode.extend({
         this.padding = 10;
         this.resizeTo(width, height);
         this.backgroundColor = "#f1f1f1";
+
         this.value = false;
+
 
         this.handleWidth = handleWidth;
         this.handleHeight = handleHeight;
 
+        // Calculate padding for the handle of the switch
         this.xHandlePadding = 0;
         this.yHandlePadding = (height - handleHeight)/2;
         if(this.yHandlePadding > 0){
@@ -45,20 +48,18 @@ var CGSGNodeSwitch = CGSGNode.extend({
         }
 
         this.setHandle();
-        this.onClick = this.slide;
+        this.onMouseDown = this.slide;
+//        this.onClick = this.slide;
 
         /**
          * Event
          * @property ON_SWITCH_VALUE_CHANGED
-         * @default false
+         * @default null
          * @type {Function}
          */
         this.onSwitchValueChanged = null;
     },
 
-    //onSwitchValueChanged: function (){
-        //do nothing
-   // },
     /**
      * slide the switchHandle, on the x axis,
      * direction determined by parent, CGSGNodeSwitch.value
