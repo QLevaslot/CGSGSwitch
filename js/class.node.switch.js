@@ -48,8 +48,7 @@ var CGSGNodeSwitch = CGSGNode.extend({
         }
 
         this.setHandle();
-        this.onMouseDown = this.slide;
-//        this.onClick = this.slide;
+        this.onClick = this.slide;
 
         /**
          * Event
