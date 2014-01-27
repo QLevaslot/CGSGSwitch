@@ -119,7 +119,7 @@ var CGSGNodeSwitch = CGSGNode.extend({
      */
     setValue: function (value) {
         if(value !== this.value){
-            this.slide;
+            this.slide();
         }
     },
 
